@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">nMedia app</string>
+    <string name="menu_edit">Редактировать</string>
+    <string name="menu_remove">" Удалить"</string>
+    <string name="description_post_menu">" Описание меню"</string>
+    <string name="description_post_like">Описание сохранения</string>
+    <string name="post_text">Введите текст</string>
+    <string name="error_empty_content">Пустое поле</string>
+</resources>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name" translatable="false">nMedia app</string>
+    <dimen name="common_spacing">16dp</dimen>
+    <string name="textTitle" translatable="false">Нетология. Меняем карьеру через образование</string>
+    <string name="date" translatable="false">30 октября 2022</string>
+    <string name="textViewLikeCount" translatable="false">10</string>
+    <string name="textViewShareCount" translatable="false">5</string>
+    <string name="TextView" translatable="false">5</string>
+    <string name="PostText" translatable="false">Если вы умеете находить баги в играх, выводить «Hello, world» в консоли, бэкапить резервные копии, то вы уже немного разработчик. Попробуйте себя в профессии 7 ноября в 19:00 на бесплатном занятии «Что нужно уметь разработчику».  На лекции рассказываем: · как изменился рынок труда в IT, · почему спрос на разработчиков продолжает стремительно расти, · какие направления востребованы в 2022 году.  Присоединяйтесь: https://netolo.gy/kQT</string>
+    <string name="description_post_menu">Description</string>
+    <string name="menu_remove">Delete</string>
+    <string name="menu_edit">Edit</string>
+    <string name="description_post_like">Description save</string>
+    <string name="post_text">Insert text</string>
+    <string name="error_empty_content">Field empty</string>
+
+</resources>
