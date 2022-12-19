@@ -16,9 +16,7 @@ class PostViewHolder(
             textViewHeader.text = post.autor
             textViewPublishDate.text = post.published
             textViewPostText.text = post.content
-            imageViewNonLike.setImageResource(
-                if (post.likedByMe) R.drawable.like_red else R.drawable.ic_baseline_favorite_border_24
-            )
+
             imageViewEllipsis.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
@@ -38,15 +36,12 @@ class PostViewHolder(
                 }.show()
             }
 
-            textViewLikeCount.text = CountService.countServise(post.likes)
-
-            imageViewNonLike.setOnClickListener {
+            like.setOnClickListener{
                 onInteractionListener.onLike(post)
             }
-            imageViewShare.setOnClickListener {
+            share.setOnClickListener{
                 onInteractionListener.onShare(post)
             }
-            textViewShareCount.text = CountService.countServise(post.share)
         }
     }
 }

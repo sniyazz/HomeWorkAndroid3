@@ -86,49 +86,6 @@
         app:constraint_referenced_ids="textViewPostText"
         tools:layout_editor_absoluteY="731dp" />
 
-    <ImageView
-        android:id="@+id/imageViewNonLike"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_spacing"
-        android:background="@android:color/transparent"
-        app:layout_constraintStart_toStartOf="@id/imageViewAvatar"
-        app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond"
-        app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
-
-    <TextView
-        android:id="@+id/textViewLikeCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="@dimen/common_spacing"
-        android:text="@string/textViewLikeCount"
-        android:textSize="@dimen/common_spacing"
-        app:layout_constraintStart_toEndOf="@id/imageViewNonLike"
-        app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond" />
-
-    <ImageView
-        android:id="@+id/imageViewShare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
-        android:layout_marginTop="@dimen/common_spacing"
-        android:background="@android:color/transparent"
-        app:layout_constraintStart_toEndOf="@id/textViewLikeCount"
-        app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond"
-        app:srcCompat="@drawable/ic_baseline_share_24" />
-
-    <TextView
-        android:id="@+id/textViewShareCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="@dimen/common_spacing"
-        android:text="@string/textViewShareCount"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/imageViewShare"
-        app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond" />
-
     <TextView
         android:id="@+id/textViewViewCount"
         android:layout_width="wrap_content"
@@ -149,5 +106,31 @@
         app:layout_constraintEnd_toStartOf="@id/textViewViewCount"
         app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond"
         app:srcCompat="@drawable/ic_baseline_remove_red_eye_24" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        android:contentDescription="@string/description_post_like"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond"
+        app:icon="@drawable/ic_like_24dp"
+        tools:checked="@tools:sample/avatars"
+        tools:text="@string/description_post_like"
+        style="@style/Widget.AppTheme.LikeButton"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:contentDescription="@string/textViewShareCount"
+        app:layout_constraintStart_toEndOf="@+id/like"
+        app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond"
+        app:icon="@drawable/ic_baseline_share_24"
+        style="@style/Widget.AppTheme.IconButton"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
