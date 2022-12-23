@@ -32,7 +32,8 @@
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="@id/save"
         app:layout_constraintBottom_toTopOf="@id/save"
-        app:srcCompat="@drawable/ic_baseline_clear_24" />
+        app:srcCompat="@drawable/ic_baseline_clear_24"
+        android:contentDescription="TODO" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/toolsTop"
@@ -46,16 +47,16 @@
         android:id="@+id/content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/post_text"
-        android:inputType="textMultiLine"
         android:background="@android:color/transparent"
-        android:padding="@dimen/common_spacing"
+        android:hint="@string/post_text"
         android:importantForAutofill="no"
-        app:layout_constraintTop_toTopOf="@id/toolsTop"
+        android:inputType="textMultiLine"
+        android:padding="@dimen/common_spacing"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/save"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="@id/toolsTop" />
 
     <ImageButton
         android:id="@+id/save"

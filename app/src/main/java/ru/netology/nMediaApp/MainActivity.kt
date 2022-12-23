@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import ru.netology.nMediaApp.R
 import ru.netology.nMediaApp.adapter.OnInteractionListener
 import ru.netology.nMediaApp.adapter.PostAdapter
 import ru.netology.nMediaApp.databinding.ActivityMainBinding
 import ru.netology.nMediaApp.dto.Post
 import ru.netology.nMediaApp.util.AndroidUtils
-
 import ru.netology.nMediaApp.viewmodel.PostViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()

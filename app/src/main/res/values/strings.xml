@@ -13,5 +13,6 @@
     <string name="description_post_like">Description save</string>
     <string name="post_text">Insert text</string>
     <string name="error_empty_content">Field empty</string>
+    <string name="netologylogo">NetologyLogo</string>
 
 </resources>

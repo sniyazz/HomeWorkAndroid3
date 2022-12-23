@@ -16,6 +16,8 @@ class PostViewHolder(
             textViewHeader.text = post.autor
             textViewPublishDate.text = post.published
             textViewPostText.text = post.content
+            like.isChecked = post.likedByMe
+            like.text = "${post.likes}"
 
             imageViewEllipsis.setOnClickListener {
                 PopupMenu(it.context, it).apply {
@@ -39,9 +41,9 @@ class PostViewHolder(
             like.setOnClickListener{
                 onInteractionListener.onLike(post)
             }
-            share.setOnClickListener{
-                onInteractionListener.onShare(post)
-            }
+//            share.setOnClickListener{
+//                onInteractionListener.onShare(post)
+//            }
         }
     }
 }
