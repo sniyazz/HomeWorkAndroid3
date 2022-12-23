@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">nMedia app</string>
-    <dimen name="common_spacing">16dp</dimen>
+    <!--dimen name="common_spacing">16dp</dimen!-->
     <string name="textTitle" translatable="false">Нетология. Меняем карьеру через образование</string>
     <string name="date" translatable="false">30 октября 2022</string>
     <string name="textViewLikeCount" translatable="false">10</string>
