@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,8 +14,8 @@
             android:id="@+id/imageViewAvatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/common_spacing"
-            android:layout_marginTop="@dimen/common_spacing"
+
+
             android:contentDescription="@string/netologylogo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -95,12 +93,11 @@
             android:layout_height="wrap_content"
             android:checkable="true"
             android:contentDescription="@string/textViewLikeCount"
-            android:textColor="#616161"
+            android:layout_marginTop="@dimen/common_spacing"
             app:icon="@drawable/ic_like_24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond"
             tools:checked="@tools:sample/avatars"
-            tools:ignore="TextContrastCheck"
             tools:text="@string/textViewLikeCount" />
 
         <com.google.android.material.button.MaterialButton
@@ -109,12 +106,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginTop="@dimen/common_spacing"
+            android:checkable="true"
             android:contentDescription="@string/textViewShareCount"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
             app:icon="@drawable/ic_baseline_share_24"
             app:layout_constraintStart_toEndOf="@+id/like"
-            app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond" />
+            app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond"
+            tools:checked="@tools:sample/avatars"
+            tools:text="@string/textViewShareCount" />
+
+        <TextView
+            android:id="@+id/textViewViewCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_spacing"
+            android:text="@string/TextView"
+            android:textSize="16sp"
+            app:layout_constraintRight_toRightOf="@id/textViewPostText"
+            app:layout_constraintTop_toBottomOf="@id/share"
+            app:layout_constraintTop_toTopOf="@id/share"/>
 
         <ImageView
             android:id="@+id/imageViewViewEueIcon"
@@ -124,8 +134,9 @@
             android:layout_marginEnd="5dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/app_name"
-            app:layout_constraintEnd_toStartOf="@id/imageViewEllipsis"
-            app:layout_constraintTop_toBottomOf="@id/horisonlalBarrierSecond"
+            app:layout_constraintEnd_toStartOf="@id/textViewViewCount"
+            app:layout_constraintTop_toBottomOf="@id/share"
+            app:layout_constraintTop_toTopOf="@id/share"
             app:srcCompat="@drawable/ic_baseline_remove_red_eye_24"
             tools:ignore="ImageContrastCheck" />
 

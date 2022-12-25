@@ -16,14 +16,18 @@ class PostViewHolder(
             textViewHeader.text = post.autor
             textViewPublishDate.text = post.published
             textViewPostText.text = post.content
+
             like.isChecked = post.likedByMe
-            like.text = "${post.likes}"
+            like.text = "${CountService.countServise(post.likes)}"
+
+            share.isChecked = post.shareByMe
+            share.text = "${CountService.countServise(post.share)}"
 
             imageViewEllipsis.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
                     setOnMenuItemClickListener { item ->
-                        when(item.itemId){
+                        when (item.itemId) {
                             R.id.remove -> {
                                 onInteractionListener.onRemove(post)
                                 true
@@ -38,12 +42,12 @@ class PostViewHolder(
                 }.show()
             }
 
-            like.setOnClickListener{
+            like.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
-//            share.setOnClickListener{
-//                onInteractionListener.onShare(post)
-//            }
+            share.setOnClickListener {
+                onInteractionListener.onShare(post)
+            }
         }
     }
 }
