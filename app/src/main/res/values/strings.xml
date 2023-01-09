@@ -11,7 +11,10 @@
     <string name="menu_remove">Delete</string>
     <string name="menu_edit">Edit</string>
     <string name="description_post_like">Description save</string>
+    <string name="description_post_save">Save</string>
+    <string name="add_post">Add post</string>
     <string name="post_text">Insert text</string>
+    <string name="chooser_share_post">Share post</string>
     <string name="error_empty_content">Field empty</string>
     <string name="netologylogo">NetologyLogo</string>
     <string name="editcancel" translatable="false">EditCancel</string>
