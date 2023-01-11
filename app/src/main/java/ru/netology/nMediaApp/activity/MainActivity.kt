@@ -14,16 +14,31 @@ import ru.netology.nMediaApp.viewmodel.PostViewModel
 
 class MainActivity : AppCompatActivity() {
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    val viewModel: PostViewModel by viewModels()
+
+    val newPostLauncher = registerForActivityResult(NewPostResultContract()) { result ->
+        result ?: return@registerForActivityResult
+        viewModel.changeContent(result)
+        viewModel.save()
+    }
+
+    val editPostLauncher = registerForActivityResult(EditPostResultContract()) { result ->
+        result ?: return@registerForActivityResult
+        viewModel.changeContent(result)
+        viewModel.save()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val viewModel: PostViewModel by viewModels()
+
 
         val adapter = PostAdapter(object : OnInteractionListener {
+
             override fun onEdit(post: Post) {
                 viewModel.edit(post)
+                editPostLauncher.launch(post.content)
             }
 
             override fun onLike(post: Post) {
@@ -55,12 +70,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.data.observe(this)
         { posts ->
             adapter.submitList(posts)
-        }
-
-        val newPostLauncher = registerForActivityResult(NewPostResultContract()) { result ->
-            result ?: return@registerForActivityResult
-            viewModel.changeContent(result)
-            viewModel.save()
         }
 
         binding.fab.setOnClickListener {
