@@ -48,6 +48,9 @@ class PostViewHolder(
             share.setOnClickListener {
                 onInteractionListener.onShare(post)
             }
+            videoLayout.setOnClickListener{
+                onInteractionListener.onVideoPlay(post)
+            }
         }
     }
 }

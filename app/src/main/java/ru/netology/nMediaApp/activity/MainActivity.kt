@@ -1,6 +1,7 @@
 package ru.netology.nMediaApp.activity
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.launch
@@ -45,10 +46,6 @@ class MainActivity : AppCompatActivity() {
                 viewModel.likeById(post.id)
             }
 
-//            override fun onShare(post: Post) {
-//                viewModel.shareById(post.id)
-//            }
-
             override fun onRemove(post: Post) {
                 viewModel.removedById(post.id)
             }
@@ -63,6 +60,11 @@ class MainActivity : AppCompatActivity() {
                 val shareIntent =
                     Intent.createChooser(intent, getString(R.string.chooser_share_post))
                 startActivity(shareIntent)
+            }
+
+            override fun onVideoPlay(post: Post) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.urlOfVideo))
+                startActivity(intent)
             }
         })
 
