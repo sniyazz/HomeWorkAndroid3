@@ -11,7 +11,7 @@ data class Post (
     val shareByMe: Boolean,
     val likes: Int,
     val share: Int,
-    val urlOfVideo: String? = "https://www.youtube.com/watch?v=WhWc3b3KhnY"
+    val urlOfVideo: String? = null
 )
 
 object CountService {

@@ -1,5 +1,6 @@
 package ru.netology.nMediaApp.adapter
 
+import android.view.View
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nMediaApp.R
@@ -47,6 +48,11 @@ class PostViewHolder(
             }
             share.setOnClickListener {
                 onInteractionListener.onShare(post)
+            }
+            if (post.urlOfVideo != null) {
+                videoLayout.visibility = View.VISIBLE
+            } else {
+                videoLayout.visibility = View.GONE
             }
             videoLayout.setOnClickListener{
                 onInteractionListener.onVideoPlay(post)
