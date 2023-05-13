@@ -1,60 +1,52 @@
 package ru.netology.nMediaApp.repository
 
+import android.content.Context
+import androidx.core.content.edit
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import ru.netology.nMediaApp.dto.Post
+import java.lang.reflect.Type
 
-class PostRepositoryInMemoryImpl : PostRepository {
+class PostRepositoryInMemoryImpl(
+    context: Context
+) : PostRepository {
+
+    companion object{
+        private const val POST_KEY = "POST_KEY"
+    }
+
     private var nextId = 1L
-    private var posts = listOf(
-        Post(
-            id = nextId++,
-            autor = "Нетология. Меняем карьеру через образование",
-            published = "17 ноя в 19:00",
-            content = "О преимуществах профессии тестировщика вы наверняка слышали. В этом видео Любовь Маясова, руководитель группы по тестированию цифровых каналов в Райффайзен Банке, рассказывает о главных недостатках профессии.",
-            likedByMe = false,
-            shareByMe = false,
-            likes = 3099,
-            share = 2195
-        ),
-        Post(
-            id = nextId++,
-            autor = "Нетология. Меняем карьеру через образование",
-            published = "18 ноя в 10:00",
-            content = "Не работайте в кровати!\n" +
-                    "Как правильно организовать рабочий процесс и пространство на фрилансе, где лучше общаться с заказчиками, как правильно хранить файлы — рассказываем в Медиа: https://netolo.gy/k4q",
-            likedByMe = false,
-            shareByMe = false,
-            likes = 2099,
-            share = 1195
-        ),
-        Post(
-            id = nextId++,
-            autor = "Нетология. Меняем карьеру через образование",
-            published = "18 ноя в 19:00",
-            content = "В офисе или дома каждому сотруднику необходимо обустроенное рабочее место. Вместительный стол, мягкий стул, складная подставка для ноутбука помогут сделать работу удобной и продуктивной. Что важно при организации рабочего места?\n" +
-                    "\n" +
-                    "Выберите из вариантов ниже или расскажите в комментариях.",
-            likedByMe = false,
-            shareByMe = false,
-            likes = 3099,
-            share = 895
-        ),
-        Post(
-            id = nextId++,
-            autor = "Нетология. Меняем карьеру через образование",
-            published = "30 октября 2022",
-            content = "Если вы умеете находить баги в играх, выводить «Hello, world» в консоли, бэкапить резервные копии, то вы уже немного разработчик. Попробуйте себя в профессии 7 ноября в 19:00 на бесплатном занятии «Что нужно уметь разработчику».  На лекции рассказываем: · как изменился рынок труда в IT, · почему спрос на разработчиков продолжает стремительно расти, · какие направления востребованы в 2022 году.  Присоединяйтесь: https://netolo.gy/kQT",
-            likedByMe = false,
-            shareByMe = false,
-            likes = 1099,
-            share = 995
-        ),
-    ).reversed()
+    private var posts: List<Post> = emptyList()
+        set(value){
+            field = value
+            sync()
+        }
+    val  prefs = context.getSharedPreferences("posts", Context.MODE_PRIVATE)
+    private val gson = Gson()
+    private val type = TypeToken.getParameterized(List::class.java, Post::class.java).type
 
     private val data = MutableLiveData(posts)
 
+    init {
+        readPosts()
+    }
+
     override fun getAll(): LiveData<List<Post>> = data
+
+    private fun sync() {
+        prefs.edit {
+            putString(POST_KEY, gson.toJson(posts))
+        }
+    }
+
+    private fun readPosts(){
+        posts = prefs.getString(POST_KEY, null)?.let {
+            gson.fromJson<List<Post>>(it, type)
+        }.orEmpty()
+        data.value = posts
+    }
     override fun likeById(id: Long) {
         posts = posts.map {
             if (it.id != id) {
